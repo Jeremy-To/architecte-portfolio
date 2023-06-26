@@ -22,6 +22,7 @@ fileInput.onchange = () => {
 	console.log(selectedFile);
 };
 
+
 document.getElementById('logout').addEventListener('click', function (event) {
 	event.preventDefault();
 
