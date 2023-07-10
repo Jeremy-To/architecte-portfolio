@@ -1,6 +1,5 @@
 async function connexionUser() {
 	const formEl = document.getElementById('login-form');
-	console.log('formEl', formEl);
 	const formData = new FormData(formEl);
 	const response = await fetch('http://localhost:5678/api/users/login', {
 		method: 'POST',

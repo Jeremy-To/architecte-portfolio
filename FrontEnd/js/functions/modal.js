@@ -21,13 +21,12 @@ function openModal(e) {
 	modal.querySelector('.closeModal').addEventListener('click', stopPropagation);
 
 	window.addEventListener('click', outsideModalClick);
-
 }
 
 function outsideModalClick(event) {
-  if (event.target === modal) {
-    closeModal(event);
-  }
+	if (event.target === modal) {
+		closeModal(event);
+	}
 }
 
 function closeModal(e) {
@@ -44,7 +43,7 @@ function closeModal(e) {
 		.removeEventListener('click', stopPropagation);
 	modal = null;
 	window.removeEventListener('click', outsideModalClick);
-  modal = null;
+	modal = null;
 }
 
 function focusInModal(e) {
@@ -121,7 +120,6 @@ function addProjectToModal(project) {
 async function deleteProjectWithConfirmation(e) {
 	if (e.target.classList.contains('deleteTrashIcon')) {
 		const projectId = e.target.dataset.id;
-		console.log(sessionStorage.getItem('token'));
 		const response = await fetch(
 			'http://localhost:5678/api/works/' + projectId,
 			{
@@ -272,8 +270,6 @@ async function validateFormProject() {
 		selectCategorie.options[selectCategorie.selectedIndex].dataset.id;
 	validationTitle = validateTitleProject();
 	validationFile = validateFileProject();
-
-	console.log(validationTitle, validationFile, validationFile === false);
 
 	if (validationFile === false && validationTitle === false) {
 		const formData = new FormData();

@@ -1,7 +1,6 @@
 window.addEventListener('load', function () {
 	let isLoggedIn = sessionStorage.getItem('isLoggedIn');
 	let isLoggedOut = sessionStorage.getItem('isLoggedOut');
-	console.log(isLoggedIn, isLoggedOut);
 	if (isLoggedIn) {
 		const isLoggedInList = document.querySelectorAll('.isLoggedIn');
 		isLoggedInList.forEach((inList) => {
@@ -19,14 +18,10 @@ window.addEventListener('load', function () {
 const fileInput = document.getElementById('ajoutPhotoBtn');
 fileInput.onchange = () => {
 	const selectedFile = fileInput.files[0];
-	console.log(selectedFile);
 };
 
 document.getElementById('logout').addEventListener('click', function (event) {
 	event.preventDefault();
-
-	console.log('se déconnecter');
-
 	deconnecter();
 });
 
