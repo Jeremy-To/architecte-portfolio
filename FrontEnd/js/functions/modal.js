@@ -19,6 +19,15 @@ function openModal(e) {
 	modal.setAttribute('aria-modal', 'true');
 	modal.querySelector('.closeModal').addEventListener('click', closeModal);
 	modal.querySelector('.closeModal').addEventListener('click', stopPropagation);
+
+	window.addEventListener('click', outsideModalClick);
+
+}
+
+function outsideModalClick(event) {
+  if (event.target === modal) {
+    closeModal(event);
+  }
 }
 
 function closeModal(e) {
@@ -34,6 +43,8 @@ function closeModal(e) {
 		.querySelector('.closeModal')
 		.removeEventListener('click', stopPropagation);
 	modal = null;
+	window.removeEventListener('click', outsideModalClick);
+  modal = null;
 }
 
 function focusInModal(e) {
